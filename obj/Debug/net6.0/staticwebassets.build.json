@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Zqo4OYHwVo4nomzPUwOMTgqjomn6Yz9OV1BnCzQFdik=",
+  "Hash": "lhryfFIFfFvpFe3KcECZHRrZp3gzZIg5SbvaS8+cV3M=",
   "Source": "kinka",
   "BasePath": "_content/kinka",
   "Mode": "Default",
@@ -51,12 +51,12 @@
       "OriginalItemSpec": "/Users/m/Documents/github/kinka/obj/Debug/net6.0/scopedcss/projectbundle/kinka.bundle.scp.css"
     },
     {
-      "Identity": "/Users/m/Documents/github/kinka/wwwroot/css/site.css",
+      "Identity": "/Users/m/Documents/github/kinka/wwwroot/css/_Layout.css",
       "SourceId": "kinka",
       "SourceType": "Discovered",
       "ContentRoot": "/Users/m/Documents/github/kinka/wwwroot/",
       "BasePath": "_content/kinka",
-      "RelativePath": "css/site.css",
+      "RelativePath": "css/_Layout.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -65,7 +65,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/css/site.css"
+      "OriginalItemSpec": "wwwroot/css/_Layout.css"
     },
     {
       "Identity": "/Users/m/Documents/github/kinka/wwwroot/favicon.ico",
