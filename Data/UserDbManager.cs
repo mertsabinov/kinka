@@ -1,7 +1,7 @@
 using kinka.Data;
 using kinka.Models;
 
-public static class DbManager
+public static class UserDbManager
 {
    private static List<User> _db = new List<User>();
 
