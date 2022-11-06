@@ -5,9 +5,9 @@ public static class DbManager
 {
    private static List<User> _db = new List<User>();
 
-   public static string RegisterUser(User user)
+   public static string UserRegister (User user)
    { 
-      User u = _db.Find(u => u.UserName == user.UserName);
+      User u = _db.Find(u => u.UserName.Equals(user.UserName));
       if (u is null)
       {
          _db.Add(user);
