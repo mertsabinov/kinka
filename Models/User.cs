@@ -7,13 +7,16 @@ public class User
     public string Surname { get; set; }
     public string Email { get; set; }
     public string UserName { get; set; }
-    
-    public User(string name, string surname,string email, string userName)
+   
+    public string Password { get; set; }
+    public User(string name, string surname,string email, string userName, string pass
+    )
     {
         Id = Guid.NewGuid().ToString();
         Name = name;
         Surname = surname;
         Email = email;
         UserName = userName;
+        Password = Password;
     }
 }
