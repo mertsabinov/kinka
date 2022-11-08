@@ -5,4 +5,9 @@ public static class UserError
     { 
        return "username is already exist";
     }
+    
+    public static string UsernameOrPasswordWrong()
+    {
+        return "username or password wrong";
+    }
 }
