@@ -4,9 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="css/Register.css"/>
 <title>Register</title>
 </head>
 <body>
-Register page 
+<div class="register-container">
+    <form method="post" action="/register/control" class="register-form" >
+        <label>name</label>
+        <input placeholder="your name" type="text" max="30" required name="name" />
+        <label>surname</label>
+        <input placeholder="your surname" type="text" max="30" required name="surname" />
+        <label>email</label>
+        <input placeholder="your email" type="email" max="50" required name="email" />
+        <label>username</label>
+        <input placeholder="your username" type="text" required name="username" />
+        <label>password</label>
+        <input placeholder="your password" type="password" required name="password" />
+        <button type="submit" >register</button>
+    </form>
+</div>
 </body>
 </html>
