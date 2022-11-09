@@ -20,14 +20,16 @@ public static class UserDbManager
       return null;
    }
 
-   public static string UserLogin(User user)
+   public static Dictionary<string,string> UserLogin(User user)
    {
-      User u = _db.Find(u => u.UserName.Equals(user.UserName) && u.UserName.Equals(user.UserName));
+      Dictionary<string, string> tmpData = new Dictionary<string, string>();
+      User u = _db.Find(u => u.UserName.Equals(user.UserName) && u.Password.Equals(user.Password));
       if (u is null)
       {
-         return UserError.UsernameIsAlreadyExist();
+         tmpData["Error"] = UserError.UsernameOrPasswordWrong();
+         return tmpData;
       }
-
-      return null;
+      tmpData["UserId"] = u.Id;
+      return tmpData;
    }
 }
