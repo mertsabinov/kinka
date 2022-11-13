@@ -1,4 +1,17 @@
-﻿<!doctype html>
+﻿@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor Accessor
+@{
+    string userId = null;
+    try
+    {
+        userId = Accessor.HttpContext.Session.GetString("UserId");
+    }
+    catch (Exception e)
+    {
+        userId = null;
+    }
+}
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -8,10 +21,21 @@
 </head>
 <body>
 <div class="navbar">
-    <a class="navbar-item" href="/">Home</a>
-    <a class="navbar-item" href="/profile">Profile</a>
-    <a class="navbar-item" href="/login">Login</a>
-    <a class="navbar-item" href="/register">Register</a>
+    @{
+        if (userId is null)
+        {
+            <a class="navbar-item" href="/">Home</a>
+            <a class="navbar-item" href="/login">Login</a>
+            <a class="navbar-item" href="/register">Register</a>         
+        }
+        else
+        {
+            <a class="navbar-item" href="/">Home</a>
+            <a class="navbar-item" href="/profile">Profile</a>
+            <a class="navbar-item" href="/profile/logout">Log out</a>
+        }
+    }
+    
 </div>
 <div class="container">
     @RenderBody()
