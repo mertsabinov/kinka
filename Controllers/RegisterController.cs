@@ -4,6 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 public class RegisterController: Controller {
     public IActionResult Index()
     {
+        string user = HttpContext.Session.GetString("UserId");
+        if (user is not null)
+        {
+            return Redirect("/");
+        }
         return View();
     }
 

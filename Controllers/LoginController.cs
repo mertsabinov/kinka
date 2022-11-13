@@ -6,6 +6,11 @@ public class LoginController : Controller
 {
     public IActionResult Index()
     {
+        string user = HttpContext.Session.GetString("UserId");
+        if (user is not null)
+        {
+            return Redirect("/");
+        }
         return View();
     }
     
@@ -23,3 +28,4 @@ public class LoginController : Controller
         return Redirect("/");
     }
 }
+
