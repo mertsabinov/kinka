@@ -32,4 +32,10 @@ public static class UserDbManager
       tmpData["UserId"] = u.Id;
       return tmpData;
    }
+
+   public static User GetUserByUserId(string userId)
+   {
+      User user = _db.Find(u => u.Id.Equals(userId));
+      return user;
+   }
 }
