@@ -7,8 +7,10 @@ public class User
     public string Surname { get; set; }
     public string Email { get; set; }
     public string UserName { get; set; }
-   
+    
     public string Password { get; set; }
+   
+    public string UserImg { get; set; }
     public User(){}
     public User(string name, string surname,string email, string userName, string password)
     {
@@ -19,4 +21,5 @@ public class User
         UserName = userName;
         Password = password;
     }
+
 }
