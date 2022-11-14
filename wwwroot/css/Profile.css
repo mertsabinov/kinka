@@ -1,0 +1,36 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+}
+
+.left-menu {
+   width: 20%;
+}
+
+.left-menu a {
+    display: block;
+    text-decoration: none;
+    color: black;
+    margin-top: 1.5%;
+    margin-bottom: 1.5%;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+    margin-right: 10%;
+}
+
+.left-menu a:hover {
+    background-color: lightgrey;
+}
+
+.right-side {
+    width: 40%;
+}
+
+.right-side p {
+    font-size: large;
+}
+
+.left-side {
+    width: 40%;
+}

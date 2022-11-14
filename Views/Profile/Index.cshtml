@@ -1,12 +1,30 @@
+@model kinka.Data.User
 <!doctype html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="css/Profile.css"/>
 <title>Profile</title>
 </head>
 <body>
-Profile Page  
+<div class="container">
+    <div class="left-menu">
+        <a href="/profile/UpdateProfileImage">Update Profile Image</a>
+        <a href="/profile/UpdatePassword">Update Password</a>
+        <a href="/profile/UpdateEmail">Update Email</a>
+    </div>
+    <div class="left-side">
+        <img src=`@Model.UserImg` alt="profile-img"/>
+    </div>
+    <div class="right-side">
+        <p>username: @Model.UserName</p>
+        <p>email: @Model.Email</p>
+        <p>password: ******</p>
+        <p>name: @Model.Name</p>
+        <p>surname: @Model.Surname</p>
+    </div>
+</div>
 </body>
 </html>
