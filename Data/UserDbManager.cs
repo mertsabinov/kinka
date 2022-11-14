@@ -38,4 +38,15 @@ public static class UserDbManager
       User user = _db.Find(u => u.Id.Equals(userId));
       return user;
    }
+
+   public static void UserProfileImgUpdate(string userId, string newImg)
+   {
+      foreach (User user in _db)
+      {
+         if (user.Id.Equals(userId))
+         {
+            user.UserImg = newImg;
+         } 
+      }
+   }
 }
