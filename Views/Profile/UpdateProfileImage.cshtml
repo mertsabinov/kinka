@@ -4,9 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Profile</title>
+<link href="~/css/Profile/UpdateProfileImage.css" rel="stylesheet"/>
+<title>Profile Update Image</title>
 </head>
 <body>
- update profile image page 
+<div class="update-profile-image-container">
+    <form action="/profile/UpdateProfileImage" method="post" class="update-profile-image-form-container">
+        <label>Image url</label>
+        <input name="imageUrl" type="url" placeholder="example: www.google.com"/>
+        <button type="submit">update</button>
+    </form>
+</div>
 </body>
 </html>
