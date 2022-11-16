@@ -23,13 +23,14 @@ public class ProfileController : Controller
         return Redirect("/");
     }
 
-    public IActionResult UpdateProfileImage()
+    public IActionResult UpdateProfileImage(string imageUrl)
     {
         string userID = HttpContext.Session.GetString("UserId");
         if (userID == null)
         {
             return Redirect("/");
         }
+        UserDbManager.UserProfileImgUpdate(userID, imageUrl);
         return View();
     }
 
