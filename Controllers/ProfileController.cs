@@ -51,12 +51,19 @@ public class ProfileController : Controller
         return View();
     }
 
-    public IActionResult UpdateEmail()
+    public IActionResult UpdateEmail(string oldEmail ,string newemail)
     {
         string userID = HttpContext.Session.GetString("UserId");
         if (userID == null)
         {
             return Redirect("/");
+        }
+
+        User user = UserDbManager.GetUserByUserId(userID);
+        if (user.Email.Equals(oldEmail))
+        {
+            UserDbManager.UserProfileEmail(userID, newemail);
+            return Redirect("/profile");
         }
         return View();
     }
