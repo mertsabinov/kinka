@@ -60,4 +60,15 @@ public static class UserDbManager
          }
       }
    }
+
+   public static void UserProfileEmail(string userID, string newEmail)
+   {
+      foreach (User user in _db)
+      {
+         if (user.Id.Equals(userID))
+         {
+            user.Email = newEmail;
+         }
+      }
+   }
 }
