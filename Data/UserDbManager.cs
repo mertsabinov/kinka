@@ -33,28 +33,28 @@ public static class UserDbManager
       return tmpData;
    }
 
-   public static User GetUserByUserId(string userId)
+   public static User GetUserByUserId(string userID)
    {
-      User user = _db.Find(u => u.Id.Equals(userId));
+      User user = _db.Find(u => u.Id.Equals(userID));
       return user;
    }
 
-   public static void UserProfileImgUpdate(string userId, string newImg)
+   public static void UserProfileImgUpdate(string userID, string newImg)
    {
       foreach (User user in _db)
       {
-         if (user.Id.Equals(userId))
+         if (user.Id.Equals(userID))
          {
             user.UserImg = newImg;
          } 
       }
    }
 
-   public static void UserProfilePasswordImage(string userId, string newPassword)
+   public static void UserProfilePasswordImage(string userID, string newPassword)
    {
       foreach (User user in _db)
       {
-         if (user.Id.Equals(userId))
+         if (user.Id.Equals(userID))
          {
             user.Password = newPassword;
          }
