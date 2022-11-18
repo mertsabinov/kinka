@@ -49,4 +49,15 @@ public static class UserDbManager
          } 
       }
    }
+
+   public static void UserProfilePasswordImage(string userId, string newPassword)
+   {
+      foreach (User user in _db)
+      {
+         if (user.Id.Equals(userId))
+         {
+            user.Password = newPassword;
+         }
+      }
+   }
 }
