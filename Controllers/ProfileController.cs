@@ -22,7 +22,7 @@ public class ProfileController : Controller
         HttpContext.Session.Clear();
         return Redirect("/");
     }
-
+    
     public IActionResult UpdateProfileImage(string imageUrl)
     {
         string userID = HttpContext.Session.GetString("UserId");
@@ -34,12 +34,19 @@ public class ProfileController : Controller
         return View();
     }
 
-    public IActionResult UpdatePassword()
+    public IActionResult UpdatePassword(string oldPassword, string newPassword)
     {
         string userID = HttpContext.Session.GetString("UserId");
         if (userID == null)
         {
             return Redirect("/");
+        }
+
+        User user = UserDbManager.GetUserByUserId(userID);
+        if (user.Password.Equals(oldPassword))
+        {
+            UserDbManager.UserProfilePasswordImage(userID, newPassword);
+            return Redirect("/profile");
         }
         return View();
     }
