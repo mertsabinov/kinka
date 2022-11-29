@@ -1,3 +1,4 @@
+@model kinka.Data.User
 <!doctype html>
 <html lang="en">
 <head>
@@ -10,16 +11,16 @@
 <body>
 <div class="register-container">
     <form method="post" action="/register/control" class="register-form" >
-        <label>name</label>
-        <input placeholder="your name" type="text" max="30" required name="name" />
-        <label>surname</label>
-        <input placeholder="your surname" type="text" max="30" required name="surname" />
-        <label>email</label>
-        <input placeholder="your email" type="email" max="50" required name="email" />
-        <label>username</label>
-        <input placeholder="your username" type="text" required name="username" />
-        <label>password</label>
-        <input placeholder="your password" type="password" required name="password" />
+        <label asp-for="Name"></label>
+        <input asp-for="Name" type="text" max="30" required name="name" />
+        <label asp-for="Surname"></label>
+        <input asp-for="Surname" type="text" max="30" required name="surname" />
+        <label asp-for="Email"></label>
+        <input asp-for="Email" type="email" max="50" required name="email" />
+        <label asp-for="UserName"></label>
+        <input asp-for="UserName" type="text" required name="username" />
+        <label asp-for="Password"></label>
+        <input asp-for="Password" type="password" required name="password" />
         <button type="submit" >register</button>
     </form>
 </div>
