@@ -51,7 +51,7 @@ public class ProfileController : Controller
         return View();
     }
 
-    public IActionResult UpdateEmail(string oldEmail ,string newemail)
+    public IActionResult UpdateEmail(string oldEmail ,string newEmail)
     {
         string userID = HttpContext.Session.GetString("UserId");
         if (userID == null)
@@ -62,7 +62,7 @@ public class ProfileController : Controller
         User user = UserDbManager.GetUserByUserId(userID);
         if (user.Email.Equals(oldEmail))
         {
-            UserDbManager.UserProfileEmail(userID, newemail);
+            UserDbManager.UserProfileEmail(userID, newEmail);
             return Redirect("/profile");
         }
         return View();
