@@ -9,7 +9,7 @@ public class Content
     [Required]
     public string Post { get; set; }
     [Required]
-    public int LikesCount { get; set; }
+    public List<string> UsersWhoLike { get; set; }
     [Required]
     public string OwnerId { get; set; }
 
@@ -18,7 +18,7 @@ public class Content
         Id = Guid.NewGuid().ToString();
         PostTitle = postTitle;
         Post = post;
-        LikesCount = 0;
+        UsersWhoLike = new List<string>();
         OwnerId = ownerId;
     }
 }
