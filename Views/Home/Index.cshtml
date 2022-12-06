@@ -1,12 +1,52 @@
-﻿<!doctype html>
+﻿@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor Accessor
+@model List<Content>
+
+@{
+    string userID;
+    try
+    {
+        userID = Accessor.HttpContext.Session.GetString("UserId");
+    }
+    catch (Exception e)
+    {
+        userID = null;
+    }
+}
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="~/css/Home.css" rel="stylesheet"/>
 <title>Kinka</title>
 </head>
 <body>
-<h1>Hello</h1>
+@{
+    if (userID is not null)
+    {
+         <form asp-controller="Home" asp-action="CreatePost" method="post" class="home-form-container">
+            <label>Post Title</label>
+            <input name="PostTitle" required maxlength="50" />
+            <label>Post Content</label>
+            <textarea name="Post" required></textarea>
+            <button type="submit">Create Post</button>
+        </form>
+    }
+}
+
+<div class="home-content-container">
+    @{
+        foreach (var content in @Model)
+        {
+            <div class="home-post-container">
+                <h3>@content.PostTitle</h3>
+                <p id="post-content">@content.Post</p>
+                <p id="post-owner">@content.OwnerUserName</p>
+            </div>
+        }
+    }
+</div>
 </body>
 </html>
