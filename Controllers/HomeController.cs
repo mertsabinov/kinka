@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using kinka.Data;
 using Microsoft.AspNetCore.Mvc;
 using kinka.Models;
 
@@ -15,7 +16,31 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        return View();
+        var data = ContentDbManager.ContentGetAll();
+        if (data is null)
+        {
+            data = new List<Content>();
+        }
+        return View(data);
+    }
+
+    [HttpPost]
+    public IActionResult CreatePost(Content content)
+    {
+        string userID = null;
+        try
+        {
+            userID = HttpContext.Session.GetString("UserId");
+        }
+        catch (Exception e)
+        {
+            return Redirect("/login");
+        }
+
+        User user = UserDbManager.GetUserByUserId(userID);
+        content.OwnerUserName = user.UserName;
+        ContentDbManager.ContentSave(content);
+        return Redirect("/");
     }
 
     public IActionResult Privacy()
