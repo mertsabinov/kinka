@@ -11,14 +11,15 @@ public class Content
     [Required]
     public List<string> UsersWhoLike { get; set; }
     [Required]
-    public string OwnerId { get; set; }
-
+    public string OwnerUserName { get; set; }
+    public Content() {}
     public Content(string postTitle, string post, string ownerId)
     {
         Id = Guid.NewGuid().ToString();
         PostTitle = postTitle;
         Post = post;
         UsersWhoLike = new List<string>();
-        OwnerId = ownerId;
+        OwnerUserName = ownerId;
     }
+
 }
